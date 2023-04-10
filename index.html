@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,6 +45,13 @@
               <option value="hours">Hours</option>
               <option value="days">Days</option>
             </optgroup>
+            <optgroup label="Speed">
+              <option value="mph">Mile Per Hour</option>
+              <option value="ft/s">Foot Per Second</option>
+              <option value="m/s">Meter Per Second</option>
+              <option value="kph">Kilometer Per Hour</option>
+              <option value="kn">Knots</option>
+            </optgroup>
           </select>
         </div>
         <div class="col-md-4">
@@ -73,6 +79,13 @@
               <option value="minutes">Minutes</option>
               <option value="hours">Hours</option>
               <option value="days">Days</option>
+            </optgroup>
+            <optgroup label="Speed">
+              <option value="mph">Mile Per Hour</option>
+              <option value="ft/s">Foot Per Second</option>
+              <option value="m/s">Meter Per Second</option>
+              <option value="kph">Kilometer Per Hour</option>
+              <option value="kn">Knots</option>
             </optgroup>
           </select>
         </div>
@@ -376,6 +389,106 @@
             convertedValue = value * 24;
             break;
           case 'days':
+            convertedValue = value;
+            break;
+        }
+        break;
+    
+      case 'mph':
+        switch (to) {
+          case 'mph':
+            convertedValue = value;
+            break;
+          case 'ft/s':
+            convertedValue = value * 1.46667;
+            break;
+          case 'm/s':
+            convertedValue = value / 2.23694;
+            break;
+          case 'kph':
+            convertedValue = value * 1.60934;
+            break;
+          case 'kn':
+            convertedValue = value / 1.15078;
+            break;
+        }
+        break;
+
+      case 'ft/s':
+        switch (to) {
+          case 'mph':
+            convertedValue = value / 1.46667;
+            break;
+          case 'ft/s':
+            convertedValue = value;
+            break;
+          case 'm/s':
+            convertedValue = value / 3.28084;
+            break;
+          case 'kph':
+            convertedValue = value * 1.09728;
+            break;
+          case 'kn':
+            convertedValue = value / 1.68781;
+            break;
+        }
+        break;
+
+      case 'm/s':
+        switch (to) {
+          case 'mph':
+            convertedValue = value * 2.23694;
+            break;
+          case 'ft/s':
+            convertedValue = value * 3.28084;
+            break;
+          case 'm/s':
+            convertedValue = value;
+            break;
+          case 'kph':
+            convertedValue = value * 3.6;
+            break;
+          case 'kn':
+            convertedValue = value * 1.94384;
+            break;
+        }
+        break;
+
+      case 'kph':
+        switch (to) {
+          case 'mph':
+            convertedValue = value / 1.60934;
+            break;
+          case 'ft/s':
+            convertedValue = value / 1.09728;
+            break;
+          case 'm/s':
+            convertedValue = value / 3.6;
+            break;
+          case 'kph':
+            convertedValue = value;
+            break;
+          case 'kn':
+            convertedValue = value / 1.852;
+            break;
+        }
+        break;
+
+      case 'kn':
+        switch (to) {
+          case 'mph':
+            convertedValue = value * 1.15078;
+            break;
+          case 'ft/s':
+            convertedValue = value * 1.68781;
+            break;
+          case 'm/s':
+            convertedValue = value / 1.94384;
+            break;
+          case 'kph':
+            convertedValue = value * 1.852;
+            break;
+          case 'kn':
             convertedValue = value;
             break;
         }
